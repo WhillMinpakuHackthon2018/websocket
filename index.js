@@ -4,10 +4,19 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 app.use(express.static('public'));
 app.use(express.static('sample'));
-app.get('/change', function(req, res){
-  io.sockets.emit('server_to_client', {value : 'baryuu'});
-  res.send('ok');
+app.get('/change1', function(req, res){
+  io.sockets.emit('server_to_client', {value : 1});
+  res.send('1');
 });
+app.get('/change2', function(req, res){
+  io.sockets.emit('server_to_client', {value : 2});
+  res.send('1');
+});
+app.get('/change3', function(req, res){
+  io.sockets.emit('server_to_client', {value : 3});
+  res.send('1');
+});
+
 
 io.on('connection', function(socket){
   console.log('a user connected');
