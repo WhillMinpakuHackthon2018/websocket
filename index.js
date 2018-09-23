@@ -25,13 +25,16 @@ app.get('/change1', function(req, res){
 
 app.get('/change2', function(req, res){
   io.sockets.emit('server_to_client', {value : 2});
-  res.send('1');
+  res.send('2');
 });
 app.get('/change3', function(req, res){
   io.sockets.emit('server_to_client', {value : 3});
-  res.send('1');
+  res.send('3');
 });
-
+app.get('/change4', function(req, res){
+  io.sockets.emit('server_to_client', {value : 4});
+  res.send('4');
+});
 
 io.on('connection', function(socket){
   console.log('a user connected');
